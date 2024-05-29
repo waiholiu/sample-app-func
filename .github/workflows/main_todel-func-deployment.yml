@@ -28,12 +28,19 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_FBA10269F12F47E0A30350FFCC74A76A }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F61E52B33033474195865685422D4E92 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_9BE5D80D18464A25A00C10EA74157CFD }}
+          slot-name: 'test'
 
-      - name: 'Run Azure Functions Action'
-        uses: Azure/functions-action@v1
-        id: fa
-        with:
-          app-name: 'todel-func-deployment'
-          slot-name: 'Production'
-          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-        
+      # - name: 'Run Azure Functions Action'
+      #   uses: Azure/functions-action@v1
+      #   id: fa
+      #   with:
+      #     app-name: 'todel-func-deployment'
+      #     slot-name: 'Production'
+      #     package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+      # - name: 'Run Azure Functions Action'
+      #   uses: Azure/functions-action@v1
+      #   with:
+      #     app-name: '<Your Function App Name>'
+      #     package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+      #     publish-profile: '${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}'
+      #     slot-name: 'Test'
