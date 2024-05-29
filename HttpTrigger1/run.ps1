@@ -12,11 +12,26 @@ if (-not $name) {
     $name = $Request.Body.Name
 }
 
-$body = "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
 
-if ($name) {
-    $body = "Howdy, $name. This HTTP triggered function executed successfully."
+try
+{
+    "Logging in to Azure..."
+    Connect-AzAccount -Identity
 }
+catch {
+    Write-Error -Message $_.Exception
+    throw $_.Exception
+}
+
+# Get all resources
+$resources = Get-AzResource
+
+# Count the resources
+$count = $resources.Count
+
+# Output the count
+$body = "Total resources in tenant: $count"
+
 
 # Associate values to output bindings by calling 'Push-OutputBinding'.
 Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
