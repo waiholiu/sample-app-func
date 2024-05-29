@@ -36,4 +36,4 @@ jobs:
           app-name: 'todel-func-deployment'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          
+        
