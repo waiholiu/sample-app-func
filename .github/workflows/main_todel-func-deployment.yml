@@ -44,11 +44,3 @@ jobs:
       #     package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
       #     publish-profile: '${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}'
       #     slot-name: 'Test'
-
-      - name: 'Run Azure Functions Action'
-        uses: Azure/functions-action@v1
-        with:
-          app-name: 'todel-func-deployment'
-          slot-name: 'test'
-          package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
