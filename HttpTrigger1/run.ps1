@@ -30,7 +30,7 @@ $resources = Get-AzResource
 $count = $resources.Count
 
 # Output the count
-$body = "Total resources in tenant: $count"
+$body = "Total resources in tenant/s: $count"
 
 
 # Associate values to output bindings by calling 'Push-OutputBinding'.
